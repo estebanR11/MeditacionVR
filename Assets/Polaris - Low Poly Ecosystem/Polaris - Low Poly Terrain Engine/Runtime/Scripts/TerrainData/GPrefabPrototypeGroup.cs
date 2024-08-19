@@ -42,6 +42,10 @@ namespace Pinwheel.Griffin
             }
         }
 #endif
+
+        [SerializeField]
+        private bool isSampleAsset;
+        public bool IsSampleAsset => isSampleAsset;
     }
 }
 #endif

@@ -40,9 +40,8 @@
 	#include "../CGIncludes/PUnderwaterCommon.cginc"
 
     float4 Frag(Varyings i) : SV_Target
-    {
-		float2 uv = i.uv;
-		float4 result = ApplyUnderwater(uv);
+    {		
+		float4 result = ApplyUnderwater(UV(i));
         return result;
     }
 

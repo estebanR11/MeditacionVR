@@ -13,7 +13,7 @@ namespace Pinwheel.Poseidon
         {
             get
             {
-                return 183;
+                return 187;
             }
         }
 
@@ -21,7 +21,7 @@ namespace Pinwheel.Poseidon
         {
             get
             {
-                return "1.8.3";
+                return "1.8.7";
             }
         }
 

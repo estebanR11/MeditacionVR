@@ -607,7 +607,6 @@ namespace Pinwheel.Griffin
             SplatNormalPropertyName = GRuntimeSettings.Instance.shadingDefault.splatNormalPropertyName;
             SplatMetallicPropertyName = GRuntimeSettings.Instance.shadingDefault.splatMetallicPropertyName;
             SplatSmoothnessPropertyName = GRuntimeSettings.Instance.shadingDefault.splatSmoothnessPropertyName;
-            Splats = GRuntimeSettings.Instance.shadingDefault.splats;
         }
 
         public void ResetFull()

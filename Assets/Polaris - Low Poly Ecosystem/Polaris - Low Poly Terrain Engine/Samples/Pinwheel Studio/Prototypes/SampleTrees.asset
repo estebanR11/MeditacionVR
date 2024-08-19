@@ -148,3 +148,4 @@ MonoBehaviour:
     baseScale: {x: 1, y: 1, z: 1}
     editor_PrefabAssetPath: Assets/Polaris - Low Poly Ecosystem/Polaris - Low Poly
       Terrain Engine/Samples/Pinwheel Studio/Prefabs/Dead_Break.prefab
+  isSampleAsset: 1

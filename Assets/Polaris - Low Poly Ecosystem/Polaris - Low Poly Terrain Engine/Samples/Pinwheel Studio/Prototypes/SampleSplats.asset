@@ -37,3 +37,4 @@ MonoBehaviour:
     tileOffset: {x: 0, y: 0}
     metallic: 0
     smoothness: 0
+  isSampleAsset: 1

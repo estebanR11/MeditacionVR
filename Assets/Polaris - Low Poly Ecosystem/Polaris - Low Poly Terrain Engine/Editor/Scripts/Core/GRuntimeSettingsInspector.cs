@@ -77,7 +77,6 @@ namespace Pinwheel.Griffin
                 instance.shadingDefault.colorByHeight = EditorGUILayout.GradientField("Color By Height", instance.shadingDefault.colorByHeight);
 
                 GEditorCommon.Header("Splats");
-                instance.shadingDefault.splats = EditorGUILayout.ObjectField("Prototypes", instance.shadingDefault.splats, typeof(GSplatPrototypeGroup), false) as GSplatPrototypeGroup;
                 instance.shadingDefault.splatControlResolution = EditorGUILayout.DelayedIntField("Control Map Resolution", instance.shadingDefault.splatControlResolution);
 
                 GEditorCommon.Header("Properties Name");
@@ -137,12 +136,10 @@ namespace Pinwheel.Griffin
             GEditorCommon.Foldout(label, false, id, () =>
             {
                 GEditorCommon.Header("Trees");
-                GRuntimeSettings.Instance.foliageDefault.trees = EditorGUILayout.ObjectField("Prototypes", GRuntimeSettings.Instance.foliageDefault.trees, typeof(GTreePrototypeGroup), false) as GTreePrototypeGroup;
                 GRuntimeSettings.Instance.foliageDefault.treeSnapMode = (GSnapMode)EditorGUILayout.EnumPopup("Snap Mode", GRuntimeSettings.Instance.foliageDefault.treeSnapMode);
                 GRuntimeSettings.Instance.foliageDefault.treeSnapLayerMask = GEditorCommon.LayerMaskField("Snap Layer", GRuntimeSettings.Instance.foliageDefault.treeSnapLayerMask);
 
                 GEditorCommon.Header("Grasses & Details");
-                GRuntimeSettings.Instance.foliageDefault.grasses = EditorGUILayout.ObjectField("Prototypes", GRuntimeSettings.Instance.foliageDefault.grasses, typeof(GGrassPrototypeGroup), false) as GGrassPrototypeGroup;
                 GRuntimeSettings.Instance.foliageDefault.patchGridSize = EditorGUILayout.DelayedIntField("Patch Grid Size", GRuntimeSettings.Instance.foliageDefault.patchGridSize);
                 GRuntimeSettings.Instance.foliageDefault.grassSnapMode = (GSnapMode)EditorGUILayout.EnumPopup("Snap Mode", GRuntimeSettings.Instance.foliageDefault.grassSnapMode);
                 GRuntimeSettings.Instance.foliageDefault.grassSnapLayerMask = GEditorCommon.LayerMaskField("Snap Layer", GRuntimeSettings.Instance.foliageDefault.grassSnapLayerMask);

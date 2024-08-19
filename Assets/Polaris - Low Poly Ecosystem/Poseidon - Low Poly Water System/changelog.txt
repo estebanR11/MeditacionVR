@@ -1,3 +1,20 @@
+V1.8.6
+FIXES
+- Fix some errors on build with water FX
+
+===
+V1.8.5
+FIXES
+- Fix water FX not working on Unity 2022.2+.
+- Fix water FX "jumping" artifact.
+- Further fix for water serialization.
+
+===
+V1.8.4
+FIXES
+- Fix water profile not saved after closing the editor.
+
+===
 V1.8.3
 IMPROVEMENTS
 - Water react with properties change in C# immediately without needed to call UpdateMaterial()

@@ -84,7 +84,7 @@ namespace Pinwheel.Griffin
             public string splatNormalPropertyName;
             public string splatMetallicPropertyName;
             public string splatSmoothnessPropertyName;
-            public GSplatPrototypeGroup splats;
+            //public GSplatPrototypeGroup splats;
         }
 
         [System.Serializable]
@@ -109,10 +109,8 @@ namespace Pinwheel.Griffin
         [System.Serializable]
         public class FoliageDefaultSettings
         {
-            public GTreePrototypeGroup trees;
             public GSnapMode treeSnapMode;
             public LayerMask treeSnapLayerMask;
-            public GGrassPrototypeGroup grasses;
             public GSnapMode grassSnapMode;
             public LayerMask grassSnapLayerMask;
             public int patchGridSize;

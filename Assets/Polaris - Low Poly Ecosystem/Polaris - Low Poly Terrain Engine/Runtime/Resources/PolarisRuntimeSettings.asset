@@ -61,6 +61,7 @@ MonoBehaviour:
       atime6: 0
       atime7: 0
       m_Mode: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 4
       m_NumAlphaKeys: 2
     colorByNormal:
@@ -90,6 +91,7 @@ MonoBehaviour:
       atime6: 0
       atime7: 0
       m_Mode: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     colorBlendCurve:
@@ -144,7 +146,6 @@ MonoBehaviour:
     splatNormalPropertyName: _Normal
     splatMetallicPropertyName: _Metallic
     splatSmoothnessPropertyName: _Smoothness
-    splats: {fileID: 11400000, guid: a3cfde07cd0a9f4488f10294d27e360e, type: 2}
   renderingDefault:
     terrainCastShadow: 1
     terrainReceiveShadow: 1
@@ -159,12 +160,10 @@ MonoBehaviour:
     grassFadeStart: 0.75
     grassCullBias: 17.5
   foliageDefault:
-    trees: {fileID: 11400000, guid: 0af7475bfa20a88428c4fdadbd83fa37, type: 2}
     treeSnapMode: 0
     treeSnapLayerMask:
       serializedVersion: 2
       m_Bits: 0
-    grasses: {fileID: 11400000, guid: a6542bf9c5c8f58429b0b70f81c0cb12, type: 2}
     grassSnapMode: 0
     grassSnapLayerMask:
       serializedVersion: 2

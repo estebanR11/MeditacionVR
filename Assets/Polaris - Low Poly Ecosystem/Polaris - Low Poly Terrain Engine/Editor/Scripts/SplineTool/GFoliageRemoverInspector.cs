@@ -1,6 +1,8 @@
 #if GRIFFIN
 using Pinwheel.Griffin.BackupTool;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.EditorCoroutines.Editor;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -258,7 +260,18 @@ namespace Pinwheel.Griffin.SplineTool
             if (cam.cameraType != CameraType.SceneView)
                 return;
             if (GEditorSettings.Instance.splineTools.livePreview.foliageRemover)
+            {
+                EditorCoroutineUtility.StartCoroutine(IDrawLivePreviewEndOfFrameURP(cam), this);
+            }
+        }
+
+        private IEnumerator IDrawLivePreviewEndOfFrameURP(Camera cam)
+        {
+            yield return new WaitForEndOfFrame();
+            if (cam != null)
+            {
                 DrawLivePreview(cam);
+            }
         }
 
         private void DrawLivePreview(Camera cam)

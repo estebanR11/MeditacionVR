@@ -23,6 +23,10 @@ namespace Pinwheel.Griffin
             }
         }
 
+        [SerializeField]
+        private bool isSampleAsset;
+        public bool IsSampleAsset => isSampleAsset;
+
         public bool Equals(TreePrototype[] treePrototypes)
         {
             if (Prototypes.Count != treePrototypes.Length)

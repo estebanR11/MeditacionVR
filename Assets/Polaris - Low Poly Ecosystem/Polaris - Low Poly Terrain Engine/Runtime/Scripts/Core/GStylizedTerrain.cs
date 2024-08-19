@@ -323,8 +323,10 @@ namespace Pinwheel.Griffin
 
 #if UNITY_EDITOR
             root.hideFlags = GEditorSettings.Instance.general.showGeometryChunkInHierarchy ? HideFlags.None : HideFlags.HideInHierarchy;
+#if !UNITY_2022_2_OR_NEWER
             StaticEditorFlags staticFlags = GameObjectUtility.GetStaticEditorFlags(root.gameObject);
             GameObjectUtility.SetStaticEditorFlags(root.gameObject, staticFlags | StaticEditorFlags.NavigationStatic);
+#endif
 #endif
             return root;
         }
@@ -441,6 +443,9 @@ namespace Pinwheel.Griffin
             if (TerrainData != null)
             {
                 TerrainData.Shading.UpdateMaterials();
+#if __MICROSPLAT_POLARIS__
+                OnShadingDirty();
+#endif
             }
 
             if (TerrainData != null && TerrainData.Geometry.StorageMode == GGeometry.GStorageMode.GenerateOnEnable)
@@ -654,6 +659,9 @@ namespace Pinwheel.Griffin
 
         private void OnGeometryDirty()
         {
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            sw.Start();
+
             geometryVersion = GVersionInfo.Number;
 
             if (PreProcessHeightMap != null)
@@ -673,6 +681,7 @@ namespace Pinwheel.Griffin
             {
                 PostProcessHeightMap.Invoke(TerrainData.Geometry.HeightMap);
             }
+            Debug.Log("Generate terrain mesh in: " + sw.ElapsedMilliseconds + " ms");
         }
 
         private void OnGeometryTimeSlicedDirty()
@@ -1384,8 +1393,6 @@ namespace Pinwheel.Griffin
             }
 #endif
 
-            if (TerrainData.Shading.ShadingSystem != GShadingSystem.Polaris)
-                return;
             InitChunks();
             GTerrainChunk[] chunks = GetChunks();
             for (int i = 0; i < chunks.Length; ++i)
@@ -1402,6 +1409,7 @@ namespace Pinwheel.Griffin
             MicroSplatPolarisMesh pm = gameObject.GetComponent<MicroSplatPolarisMesh>();
             if (pm == null)
                 return;
+            TerrainData.Shading.CustomMaterial = pm.matInstance;
             Texture2D[] controls = new Texture2D[TerrainData.Shading.SplatControlMapCount];
             for (int i = 0; i < controls.Length; ++i)
             {
@@ -1503,7 +1511,7 @@ namespace Pinwheel.Griffin
                         currentChunk.Internal_NeighborChunks[3] = otherChunk;
                     }
                 }
-#if UNITY_EDITOR
+#if UNITY_EDITOR && !UNITY_2022_2_OR_NEWER
                 StaticEditorFlags staticFlags = GameObjectUtility.GetStaticEditorFlags(currentChunk.gameObject);
                 GameObjectUtility.SetStaticEditorFlags(currentChunk.gameObject, staticFlags | StaticEditorFlags.NavigationStatic);
 #endif

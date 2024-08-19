@@ -191,6 +191,12 @@ namespace Pinwheel.Griffin
                 EditorApplication.update += OnPackageAdded;
                 EditorApplication.QueuePlayerLoopUpdate();
             }
+            else if (!isEditorCoroutinesInstalled)
+            {
+                addPackageRequest = Client.Add("com.unity.editorcoroutines");
+                EditorApplication.update += OnPackageAdded;
+                EditorApplication.QueuePlayerLoopUpdate();
+            }
             else
             {
                 SetupKeywords();

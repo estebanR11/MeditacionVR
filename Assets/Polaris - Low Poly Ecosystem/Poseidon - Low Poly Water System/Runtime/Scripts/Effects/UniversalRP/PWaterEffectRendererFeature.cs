@@ -147,6 +147,7 @@ namespace Pinwheel.Poseidon.FX.Universal
 #if UNITY_2022_1_OR_NEWER
                 cameraTarget = renderingData.cameraData.renderer.cameraColorTargetHandle;
                 temporaryRenderTexture = RTHandles.Alloc(cameraTargetDescriptor);
+                material.SetTexture(PMat.MAIN_TEX, cameraTarget);
                 Blit(cmd, cameraTarget, temporaryRenderTexture, material, 0);
                 Blit(cmd, temporaryRenderTexture, cameraTarget);
 #elif UNITY_2021_2_OR_NEWER

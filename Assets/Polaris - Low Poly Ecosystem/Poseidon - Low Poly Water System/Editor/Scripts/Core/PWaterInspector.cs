@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using Pinwheel.Poseidon.FX;
 using UnityEngine.Rendering;
+using UnityEditor.SceneManagement;
 #if TEXTURE_GRAPH
 using Pinwheel.TextureGraph;
 #endif
@@ -14,12 +15,7 @@ namespace Pinwheel.Poseidon
     public class PWaterInspector : Editor
     {
         private PWater water;
-        private PWaterProfile profile;
         private bool willDrawDebugGUI = false;
-
-        private SerializedObject so;
-        private SerializedProperty reflectionLayersSO;
-        private SerializedProperty refractionLayersSO;
 
         private readonly int[] renderTextureSizes = new int[] { 128, 256, 512, 1024, 2048 };
         private readonly string[] renderTextureSizeLabels = new string[] { "128", "256", "512", "1024", "2048*" };
@@ -142,6 +138,7 @@ namespace Pinwheel.Poseidon
             DrawProfileGUI();
             if (water.Profile != null)
             {
+                EditorGUI.BeginChangeCheck();
                 DrawMeshSettingsGUI();
                 DrawRenderingSettingsGUI();
                 DrawTimeSettingsGUI();
@@ -155,6 +152,11 @@ namespace Pinwheel.Poseidon
                 DrawRefractionSettingsGUI();
                 DrawCausticSettingsGUI();
                 DrawEffectsGUI();
+                if (EditorGUI.EndChangeCheck())
+                {
+                    EditorUtility.SetDirty(water);
+                    EditorUtility.SetDirty(water.Profile);
+                }
             }
         }
 
@@ -482,7 +484,7 @@ namespace Pinwheel.Poseidon
 
             PEditorCommon.Foldout(label, true, id, () =>
             {
-                if (water.MaterialToRender!=null)
+                if (water.MaterialToRender != null)
                 {
                     water.MaterialToRender.name = water.MaterialToRender.shader.name;
                 }

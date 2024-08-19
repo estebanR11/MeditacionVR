@@ -163,6 +163,8 @@ namespace Pinwheel.Poseidon.FX
             {
                 SetupQuickVolume();
             }
+
+            CacheFxMaterialForSerializing();
         }
 
         private void OnDisable()
@@ -170,7 +172,7 @@ namespace Pinwheel.Poseidon.FX
             Camera.onPreCull -= OnCameraPreCull;
             RenderPipelineManager.beginCameraRendering -= OnBeginCameraRendering;
             CleanupQuickVolume();
-            CacheFxMaterialForSerializing();
+            //CacheFxMaterialForSerializing();
         }
 
         private void OnBeginCameraRendering(ScriptableRenderContext context, Camera cam)

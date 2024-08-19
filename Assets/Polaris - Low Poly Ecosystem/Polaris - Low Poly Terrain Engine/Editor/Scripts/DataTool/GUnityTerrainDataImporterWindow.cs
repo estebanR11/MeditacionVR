@@ -197,11 +197,11 @@ namespace Pinwheel.Griffin.DataTool
                         else
                         {
                             if (DesData.Shading.Splats == null ||
-                                DesData.Shading.Splats == GRuntimeSettings.Instance.shadingDefault.splats)
+                                DesData.Shading.Splats.IsSampleAsset)
                             {
                                 CreateNewSplatPrototypesGroup = true;
                             }
-                            GUI.enabled = DesData.Shading.Splats != null && DesData.Shading.Splats != GRuntimeSettings.Instance.shadingDefault.splats;
+                            GUI.enabled = DesData.Shading.Splats != null && !DesData.Shading.Splats.IsSampleAsset;
                             GUIContent newSplatsGroupGUI = new GUIContent("New Splats Group", "There is no splats group assigned or sample splats group is in used.");
                             CreateNewSplatPrototypesGroup = EditorGUILayout.Toggle(newSplatsGroupGUI, CreateNewSplatPrototypesGroup);
                             GUI.enabled = true;
@@ -225,11 +225,11 @@ namespace Pinwheel.Griffin.DataTool
                         else
                         {
                             if (DesData.Foliage.Trees == null ||
-                                DesData.Foliage.Trees == GRuntimeSettings.Instance.foliageDefault.trees)
+                                DesData.Foliage.Trees.IsSampleAsset)
                             {
                                 CreateNewTreePrototypesGroup = true;
                             }
-                            GUI.enabled = DesData.Foliage.Trees != null && DesData.Foliage.Trees != GRuntimeSettings.Instance.foliageDefault.trees;
+                            GUI.enabled = DesData.Foliage.Trees != null && !DesData.Foliage.Trees.IsSampleAsset;
                             GUIContent newTreeGroupGUI = new GUIContent("New Trees Group", "There is no trees group assigned or sample trees group is in used.");
                             CreateNewTreePrototypesGroup = EditorGUILayout.Toggle(newTreeGroupGUI, CreateNewTreePrototypesGroup);
                             GUI.enabled = true;
@@ -253,11 +253,11 @@ namespace Pinwheel.Griffin.DataTool
                         else
                         {
                             if (DesData.Foliage.Grasses == null ||
-                                DesData.Foliage.Grasses == GRuntimeSettings.Instance.foliageDefault.grasses)
+                                DesData.Foliage.Grasses.IsSampleAsset)
                             {
                                 CreateNewGrassPrototypesGroup = true;
                             }
-                            GUI.enabled = DesData.Foliage.Grasses != null && DesData.Foliage.Grasses != GRuntimeSettings.Instance.foliageDefault.grasses;
+                            GUI.enabled = DesData.Foliage.Grasses != null && !DesData.Foliage.Grasses.IsSampleAsset;
                             GUIContent newGrassGroupGUI = new GUIContent("New Grasses Group", "There is no grasses group assigned or sample grasses group is in used.");
                             CreateNewGrassPrototypesGroup = EditorGUILayout.Toggle(newGrassGroupGUI, CreateNewGrassPrototypesGroup);
                             GUI.enabled = true;
@@ -370,7 +370,7 @@ namespace Pinwheel.Griffin.DataTool
                     importer.ImportSplatControlMapsOnly = ImportSplatControlMapsOnly;
                     bool createNewSplatGroup = CreateNewSplatPrototypesGroup;
                     if (t.TerrainData.Shading.Splats == null ||
-                        t.TerrainData.Shading.Splats == GRuntimeSettings.Instance.shadingDefault.splats)
+                        t.TerrainData.Shading.Splats.IsSampleAsset)
                     {
                         createNewSplatGroup = true;
                     }
@@ -380,7 +380,7 @@ namespace Pinwheel.Griffin.DataTool
                     importer.ImportTreeInstancesOnly = ImportTreeInstancesOnly;
                     bool createNewTreeGroup = CreateNewTreePrototypesGroup;
                     if (t.TerrainData.Foliage.Trees == null ||
-                        t.TerrainData.Foliage.Trees == GRuntimeSettings.Instance.foliageDefault.trees)
+                        t.TerrainData.Foliage.Trees.IsSampleAsset)
                     {
                         createNewTreeGroup = true;
                     }
@@ -390,7 +390,7 @@ namespace Pinwheel.Griffin.DataTool
                     importer.ImportGrassInstancesOnly = ImportGrassInstancesOnly;
                     bool createNewGrassGroup = CreateNewGrassPrototypesGroup;
                     if (t.TerrainData.Foliage.Grasses == null ||
-                        t.TerrainData.Foliage.Grasses == GRuntimeSettings.Instance.foliageDefault.trees)
+                        t.TerrainData.Foliage.Grasses.IsSampleAsset)
                     {
                         createNewGrassGroup = true;
                     }

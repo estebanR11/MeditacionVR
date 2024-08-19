@@ -109,6 +109,7 @@ namespace Pinwheel.Poseidon
         public static readonly int PP_WET_LENS_TEX = Shader.PropertyToID("_WetLensTex");
         public static readonly int PP_WET_LENS_STRENGTH = Shader.PropertyToID("_Strength");
 
+        public static readonly int MAIN_TEX = Shader.PropertyToID("_MainTex");
         private static Material activeMaterial;
 
         public static void SetActiveMaterial(Material mat)

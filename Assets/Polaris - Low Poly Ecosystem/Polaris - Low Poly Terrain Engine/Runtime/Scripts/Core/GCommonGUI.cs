@@ -1221,7 +1221,7 @@ namespace Pinwheel.Griffin
                 set = splatSet[0];
             }
 
-            if (set == GRuntimeSettings.Instance.shadingDefault.splats)
+            if (set.IsSampleAsset)
             {
                 EditorGUILayout.LabelField("This is a demo Splat set, consider creating your own one!", WordWrapItalicLabel);
             }

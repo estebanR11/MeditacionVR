@@ -90,7 +90,7 @@ namespace Pinwheel.Griffin
             set
             {
                 int oldValue = heightMapResolution;
-                heightMapResolution = Mathf.Clamp(Mathf.ClosestPowerOfTwo(value), GCommon.TEXTURE_SIZE_MIN, GCommon.TEXTURE_SIZE_MAX);
+                heightMapResolution = Mathf.Clamp(value, GCommon.TEXTURE_SIZE_MIN, GCommon.TEXTURE_SIZE_MAX);
                 if (oldValue != heightMapResolution)
                 {
                     ResampleHeightMap();

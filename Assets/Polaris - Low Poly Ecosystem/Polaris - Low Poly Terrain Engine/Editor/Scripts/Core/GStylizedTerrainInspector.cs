@@ -66,7 +66,6 @@ namespace Pinwheel.Griffin
             DrawStreamingGUI();
             DrawProceduralTerrainGUI();
             InjectGUI(injectGuiIndex++);
-            DrawReviewGUI();
             if (EditorGUI.EndChangeCheck())
             {
                 EditorUtility.SetDirty(terrain);
@@ -1202,8 +1201,7 @@ namespace Pinwheel.Griffin
             {
                 GEditorCommon.Foldout(GProcTerrainGUI.LABEL, true, GProcTerrainGUI.ID, () =>
                 {
-                    EditorGUILayout.LabelField("Vista is an advanced toolset for procedural terrain creation that works perfectly with Polaris.");
-                    //EditorGUILayout.LabelField("<b>SPECIAL OFFER:</b> Vista is now <b>50% OFF</b> for Polaris 2021 user.", GEditorCommon.WarningLabel);
+                    EditorGUILayout.LabelField("Vista is an advanced toolset for procedural terrain creation that works perfectly with Polaris.");                    
                     GEditorCommon.DrawAffLinks(
                         "Generate beautiful terrain with Vista",
                         "https://assetstore.unity.com/packages/tools/terrain/vista-advanced-terrain-graph-editor-210496");
@@ -1313,15 +1311,6 @@ namespace Pinwheel.Griffin
             if (GUIInject != null)
             {
                 GUIInject.Invoke(terrain, order);
-            }
-        }
-
-        GRatingBoxDrawer ratingBox = new GRatingBoxDrawer();
-        private void DrawReviewGUI()
-        {
-            if (GRatingBoxDrawer.IsAppropriateForShowing())
-            {
-                ratingBox.DrawGUI();
             }
         }
     }

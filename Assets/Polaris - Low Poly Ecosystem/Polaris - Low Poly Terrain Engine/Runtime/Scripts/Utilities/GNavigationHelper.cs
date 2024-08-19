@@ -96,7 +96,7 @@ namespace Pinwheel.Griffin
                         mr.receiveShadows = false;
                     }
                 }
-#if UNITY_EDITOR
+#if UNITY_EDITOR && !UNITY_2022_2_OR_NEWER
                 GameObjectUtility.SetStaticEditorFlags(template, StaticEditorFlags.NavigationStatic);
 #endif
                 template.name = prototypes[i].Prefab.name;

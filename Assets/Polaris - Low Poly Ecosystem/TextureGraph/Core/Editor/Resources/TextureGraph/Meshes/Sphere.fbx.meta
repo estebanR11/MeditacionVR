@@ -94,3 +94,10 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 195642
+  packageName: Low Poly Tools Bundle
+  packageVersion: 1.2
+  assetPath: Assets/Polaris - Low Poly Ecosystem/TextureGraph/Core/Editor/Resources/TextureGraph/Meshes/Sphere.fbx
+  uploadId: 559936

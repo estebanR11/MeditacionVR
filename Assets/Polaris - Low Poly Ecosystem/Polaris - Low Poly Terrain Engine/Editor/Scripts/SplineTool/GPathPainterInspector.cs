@@ -1,9 +1,11 @@
 #if GRIFFIN
 using Pinwheel.Griffin.BackupTool;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
+using Unity.EditorCoroutines.Editor;
 
 namespace Pinwheel.Griffin.SplineTool
 {
@@ -239,11 +241,22 @@ namespace Pinwheel.Griffin.SplineTool
         private void OnCameraRenderSRP(UnityEngine.Rendering.ScriptableRenderContext context, Camera cam)
         {
             isUrp = true;
-            urpContext = context; 
+            urpContext = context;
             if (cam.cameraType != CameraType.SceneView)
                 return;
             if (GEditorSettings.Instance.splineTools.livePreview.pathPainter)
+            {
+                EditorCoroutineUtility.StartCoroutine(IDrawLivePreviewEndOfFrameURP(cam), this);
+            }
+        }
+
+        private IEnumerator IDrawLivePreviewEndOfFrameURP(Camera cam)
+        {
+            yield return new WaitForEndOfFrame();
+            if (cam != null)
+            {
                 DrawLivePreview(cam);
+            }
         }
 
         private void DrawLivePreview(Camera cam)

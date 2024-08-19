@@ -295,7 +295,12 @@ namespace Pinwheel.Griffin.SplineTool
             {
                 GPrototypeInstanceInfo info = instanceInfo[i];
                 Vector3 from = new Vector3(t.transform.position.x + info.position.x * terrainSize.x, 10000, t.transform.position.z + info.position.z * terrainSize.z);
+#if UNITY_2022_2_OR_NEWER
+                QueryParameters q = new QueryParameters(WorldRaycastMask, false, QueryTriggerInteraction.Ignore, false);
+                RaycastCommand cmd = new RaycastCommand(from, Vector3.down, q, float.MaxValue);
+#else
                 RaycastCommand cmd = new RaycastCommand(from, Vector3.down, float.MaxValue, WorldRaycastMask, 1);
+#endif
                 raycastCommands[i] = cmd;
             }
             {

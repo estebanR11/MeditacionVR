@@ -295,7 +295,8 @@ namespace Pinwheel.Griffin
         {
             if (EditorUtility.DisplayDialog(
                 "About Vista",
-                "Vista is an advanced toolset for procedural terrain generation, which perfectly compatible with Polaris 2021\n",
+                "Vista is an advanced toolset for procedural terrain generation, which perfectly compatible with Polaris 2021\n" +
+                "Vista is now 50% OFF for Polaris 2021 user!",
                 "Show me more",
                 "Close"))
             {

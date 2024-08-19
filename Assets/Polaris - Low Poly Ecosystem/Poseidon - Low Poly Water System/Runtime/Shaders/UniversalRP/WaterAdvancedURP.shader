@@ -58,7 +58,7 @@
             Blend One Zero
             Cull Back
             ZTest LEqual
-            ZWrite On
+            ZWrite Off
 
             HLSLPROGRAM
 

@@ -19,8 +19,7 @@
 
 	float4 Frag(Varyings i) : SV_Target
 	{
-		float2 uv = i.uv;
-		float4 color = ApplyWetLens(uv);
+		float4 color = ApplyWetLens(UV(i));
 
 		return color;
 	}

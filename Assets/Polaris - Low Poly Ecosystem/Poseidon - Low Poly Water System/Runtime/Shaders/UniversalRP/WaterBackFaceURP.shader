@@ -46,7 +46,7 @@
 
             Cull Front
             ZTest LEqual
-            ZWrite On
+            ZWrite Off
 
             HLSLPROGRAM
 

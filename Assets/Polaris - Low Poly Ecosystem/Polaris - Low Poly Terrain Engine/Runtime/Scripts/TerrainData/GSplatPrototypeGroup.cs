@@ -25,6 +25,10 @@ namespace Pinwheel.Griffin
             }
         }
 
+        [SerializeField]
+        private bool isSampleAsset;
+        public bool IsSampleAsset => isSampleAsset;
+
         public bool Equals(SplatPrototype[] layers)
         {
             if (Prototypes.Count != layers.Length)

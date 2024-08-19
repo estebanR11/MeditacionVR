@@ -212,6 +212,7 @@ namespace Pinwheel.TextureGraph
             GraphView = new TGraphView();
             GraphView.GraphEditor = this;
             leftContainer.Add(GraphView);
+            //GraphView.OnEnable();
             GraphView.AddToClassList(TConst.USS_STRETCH);
             GraphView.graphViewChanged = OnGraphViewChanged;
 
@@ -298,6 +299,10 @@ namespace Pinwheel.TextureGraph
             if (view3DWindow != null)
             {
                 view2DWindow.OnDisable();
+            }
+            if (GraphView!=null)
+            {
+                //GraphView.OnDisable();
             }
         }
 
@@ -552,6 +557,8 @@ namespace Pinwheel.TextureGraph
         private void OnNodeDoubleClicked(TGraphView gv, Node n)
         {
             if (gv != GraphView)
+                return;
+            if (n == null)
                 return;
             TAbstractTextureNode node = ClonedGraph.GraphData.GetNodeByGUID((Guid)n.userData);
             if (node != null)

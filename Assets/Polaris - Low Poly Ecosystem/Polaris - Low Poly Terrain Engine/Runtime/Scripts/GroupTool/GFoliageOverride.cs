@@ -328,10 +328,8 @@ namespace Pinwheel.Griffin.GroupTool
             OverrideBendSensitive = false;
             OverrideRestoreSensitive = false;
 
-            Trees = GRuntimeSettings.Instance.foliageDefault.trees;
             TreeSnapMode = GRuntimeSettings.Instance.foliageDefault.treeSnapMode;
             TreeSnapLayerMask = GRuntimeSettings.Instance.foliageDefault.treeSnapLayerMask;
-            Grasses = GRuntimeSettings.Instance.foliageDefault.grasses;
             GrassSnapMode = GRuntimeSettings.Instance.foliageDefault.grassSnapMode;
             GrassSnapLayerMask = GRuntimeSettings.Instance.foliageDefault.grassSnapLayerMask;
             PatchGridSize = GRuntimeSettings.Instance.foliageDefault.patchGridSize;

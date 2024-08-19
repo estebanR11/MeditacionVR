@@ -525,7 +525,11 @@ namespace Pinwheel.Griffin.SplineTool
                     null);
             }
 
+#if UNITY_2022_2_OR_NEWER
+            RenderPipeline.SubmitRenderRequest(cam, new RenderPipeline.StandardRequest());
+#else
             UniversalRenderPipeline.RenderSingleCamera(context, cam);
+#endif
 
             cam.targetTexture = null;
             GUtilities.DestroyGameobject(cameraObject);

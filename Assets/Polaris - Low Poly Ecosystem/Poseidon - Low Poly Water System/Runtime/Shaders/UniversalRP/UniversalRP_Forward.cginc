@@ -82,7 +82,7 @@ Varyings vert(Attributes v)
     o.viewDirectionWS = _WorldSpaceCameraPos.xyz - positionLS;
     o.positionSS = ComputeScreenPos(o.positionCS, _ProjectionParams.x);
 
-    OUTPUT_SH(o.normalWS, o.sh);
+    //OUTPUT_SH(o.normalWS, o.sh);
 
     half3 vertexLight = VertexLighting(positionLS, o.normalWS);
     half fogFactor = ComputeFogFactor(o.positionCS.z);

@@ -45,7 +45,7 @@ MonoBehaviour:
   waveDeform: 0
   fresnelStrength: 1.46
   fresnelBias: 0.361
-  enableReflection: 1
+  enableReflection: 0
   reflectionTextureResolution: 512
   enableReflectionPixelLight: 0
   reflectionClipPlaneOffset: 0

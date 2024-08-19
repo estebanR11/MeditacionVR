@@ -1,5 +1,6 @@
 #ifndef PPOSTPROCESSING_COMMON_INCLUDED
 #define PPOSTPROCESSING_COMMON_INCLUDED
+#include "PPostProcessingDefines.cs.cginc"
 
 #if defined (POSEIDON_SRP)
 

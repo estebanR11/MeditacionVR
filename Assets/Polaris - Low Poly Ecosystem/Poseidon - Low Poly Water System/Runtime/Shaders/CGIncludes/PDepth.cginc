@@ -11,7 +11,7 @@
 float GetSceneDepth(float4 screenPos)
 {
 	#if !defined(POSEIDON_SRP)
-		screenPos = float4(screenPos.xyz, screenPos.w + 0.00000000001);
+		screenPos = float4(screenPos.xyz, screenPos.w + 0.0001);
 		float depth01 = SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture, UNITY_PROJ_COORD(screenPos));
 		float perpsDepth = LinearEyeDepth(depth01);
 	#else

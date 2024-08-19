@@ -137,7 +137,7 @@ namespace Pinwheel.Griffin.DataTool
             {
                 GSplatPrototypeGroup splatGroup = DesData.Shading.Splats;
                 if (splatGroup == null ||
-                    splatGroup == GRuntimeSettings.Instance.shadingDefault.splats)
+                    splatGroup.IsSampleAsset)
                 {
                     CreateNewSplatPrototypesGroup = true;
                 }
@@ -214,7 +214,7 @@ namespace Pinwheel.Griffin.DataTool
             {
                 GTreePrototypeGroup treeGroup = DesData.Foliage.Trees;
                 if (treeGroup == null ||
-                    treeGroup == GRuntimeSettings.Instance.foliageDefault.trees)
+                    treeGroup.IsSampleAsset)
                 {
                     CreateNewTreePrototypesGroup = true;
                 }
@@ -270,7 +270,7 @@ namespace Pinwheel.Griffin.DataTool
             {
                 GGrassPrototypeGroup grassesGroup = DesData.Foliage.Grasses;
                 if (grassesGroup == null ||
-                    grassesGroup == GRuntimeSettings.Instance.foliageDefault.grasses)
+                    grassesGroup.IsSampleAsset)
                 {
                     CreateNewGrassPrototypesGroup = true;
                 }

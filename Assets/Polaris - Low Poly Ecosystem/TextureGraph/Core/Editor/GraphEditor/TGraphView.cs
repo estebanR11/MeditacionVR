@@ -90,9 +90,9 @@ namespace Pinwheel.TextureGraph
             return compatiblePorts;
         }
 
-        public override void HandleEvent(EventBase evt)
+        protected override void ExecuteDefaultActionAtTarget(EventBase evt)
         {
-            base.HandleEvent(evt);
+            base.ExecuteDefaultAction(evt);
             if (evt is MouseDownEvent || evt is MouseUpEvent)
             {
                 HandleNodeToInspect();
@@ -109,6 +109,26 @@ namespace Pinwheel.TextureGraph
                 LocalMousePosition = mme.localMousePosition;
             }
         }
+
+        //public override void HandleEvent(EventBase evt)
+        //{
+        //    base.HandleEvent(evt);
+        //    if (evt is MouseDownEvent || evt is MouseUpEvent)
+        //    {
+        //        HandleNodeToInspect();
+        //    }
+        //    if (evt is MouseDownEvent mde)
+        //    {
+        //        if (mde.clickCount >= 2)
+        //        {
+        //            HandleNodeDoubleClick();
+        //        }
+        //    }
+        //    if (evt is MouseMoveEvent mme)
+        //    {
+        //        LocalMousePosition = mme.localMousePosition;
+        //    }
+        //}
 
         public void HandleNodeToInspect()
         {
@@ -129,6 +149,7 @@ namespace Pinwheel.TextureGraph
                 if (NodeToInspectChanged != null)
                 {
                     NodeToInspectChanged.Invoke(this, nodeToInspect);
+                    NodeDoubleClicked.Invoke(this, nodeToInspect);
                 }
             }
         }

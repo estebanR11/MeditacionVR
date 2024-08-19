@@ -28,19 +28,16 @@ namespace Pinwheel.Griffin
 
         public void Execute(int index)
         {
-            bool isDirty = false;
             Vector2 pos = positions[index];
-            for (int i = 0; i < dirtyRects.Length; ++i)
-            {
-                if (dirtyRects[i].Contains(pos))
-                {
-                    isDirty = true;
-                    break;
-                }
-            }
 
             Vector3 from = new Vector3(terrainPosition.x + pos.x * terrainSize.x, 10000, terrainPosition.z + pos.y * terrainSize.z);
-            RaycastCommand cmd = new RaycastCommand(from, Vector3.down, float.MaxValue, isDirty ? mask : 0, maxHit);
+#if UNITY_2022_2_OR_NEWER
+            QueryParameters q = new QueryParameters(mask, false, QueryTriggerInteraction.Ignore, false);
+            RaycastCommand cmd = new RaycastCommand(from, Vector3.down, q, float.MaxValue);
+#else
+            RaycastCommand cmd = new RaycastCommand(from, Vector3.down, float.MaxValue, mask, 1);
+#endif
+
             commands[index] = cmd;
         }
     }

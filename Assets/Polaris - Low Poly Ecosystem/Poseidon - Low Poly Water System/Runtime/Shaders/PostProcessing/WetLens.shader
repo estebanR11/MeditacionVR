@@ -5,7 +5,7 @@
 		//_MainTex("Main Texture", 2D) = "white"{}
 		_WetLensTex("Distortion Map", 2D) = "bump"{}
 		_Strength("Strength", Float) = 1
-	}
+	} 
 
 	HLSLINCLUDE
 

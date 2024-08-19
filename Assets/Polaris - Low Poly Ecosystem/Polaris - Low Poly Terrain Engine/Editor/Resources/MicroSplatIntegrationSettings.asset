@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MicroSplatIntegrationSettings
   m_EditorClassIdentifier: 
   dataDirectory: Assets/_Demo/MicroSplatConfigs
-  shaderNamePrefix: Polaris
+  shaderNamePrefix: ABCPolaris_
   initTextureEntries: 1
